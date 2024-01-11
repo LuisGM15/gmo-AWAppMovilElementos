@@ -92,7 +92,9 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Class\ClassBD.cs" />
+    <Compile Include="Class\Datetime\DatetimeClass.cs" />
     <Compile Include="Class\Element\Auth\ElementAuthClass.cs" />
+    <Compile Include="Class\Element\Encuesta\EncuestaClass.cs" />
     <Compile Include="Class\Element\Expedient\ElementExpedientClass.cs" />
     <Compile Include="Class\Element\Incident\ElementIncidentClass.cs" />
     <Compile Include="Class\Element\Messages\ElementMessagesClass.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Class\Support\Auth\SupportAuthClass.cs" />
     <Compile Include="Class\Support\Messages\SupportMessagesClass.cs" />
     <Compile Include="Controllers\Element\Auth\ElementAuthController.cs" />
+    <Compile Include="Controllers\Element\Encuesta\EncuestaController.cs" />
     <Compile Include="Controllers\Element\Expedient\ElementExpedientController.cs" />
     <Compile Include="Controllers\Element\Incident\ElementIncidentController.cs" />
     <Compile Include="Controllers\Element\Messages\ElementMessagesController.cs" />
@@ -114,6 +117,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Element\Auth\ElementAuthModel.cs" />
+    <Compile Include="Models\Element\Encuesta\EncuestaModel.cs" />
+    <Compile Include="Models\Element\Encuesta\PreguntaModel.cs" />
+    <Compile Include="Models\Element\Encuesta\RElementoEncuestaModel.cs" />
+    <Compile Include="Models\Element\Encuesta\RespuestaModel.cs" />
     <Compile Include="Models\Element\Expedient\ElementExpedientModel.cs" />
     <Compile Include="Models\Element\Incident\ElementIncidentModel.cs" />
     <Compile Include="Models\Element\Messages\ElementMensajeModel.cs" />
@@ -129,6 +136,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
