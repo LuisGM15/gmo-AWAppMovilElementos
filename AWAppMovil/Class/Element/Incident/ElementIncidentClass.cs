@@ -15,10 +15,6 @@ namespace AWAppMovil.Class.Element.Incident
             List<ElementIncidentModel> incidents = new List<ElementIncidentModel>();
             db.strSQL = "SELECT Fecha, Incidencia FROM  T_Asistenciasb WHERE (Num_empleado = '" + numEmp + "') AND Fecha IN ('" + f1 + "', '" + f2 + "', '" + f3 + "', '" + f4 + "', '" + f5 + "', '" + f6 + "', '" + f7 + "', '" + f8 + "', '" + f9 + "', '" + f10 + "', '" + f11 + "', '" + f12 + "', '" + f13 + "', '" + f14 + "', '" + f15 + "') ORDER BY Fecha";
 
-            //db.strSQL = "SELECT Id, Num_empleado, Num_Asistencia, Fecha, Incidencia, Dia, Proyecto, SubProyecto, Servicio, Tipo, id_cf, DiaA  FROM  T_Asistenciasb WHERE Num_empleado = '" + numEmp + "' AND Proyecto = '" + proyecto + "' AND SubProyecto = '" + subproyecto + "' AND Servicio = '" + servicio + "' AND Fecha IN ('2023-06-26', '2023-06-27', '2023-06-28', '2023-06-29', '2023-06-30', '2023-07-01', '2023-07-02', '2023-07-03', '2023-07-04', '2023-07-05', '2023-07-06', '2023-07-07', '2023-07-08', '2023-07-09', '2023-07-10') ORDER BY Fecha";
-            // CHIDA -- db.strSQL = "SELECT Fecha, Incidencia FROM  T_Asistenciasb WHERE (Num_empleado = '" + numEmp + "') AND (Proyecto = '" + proyecto + "') AND (SubProyecto = '" + subproyecto + "') AND (Servicio = '" + servicio + "') AND Fecha IN ('" + f1 + "', '" + f2 + "', '" + f3 + "', '" + f4 + "', '" + f5 + "', '" + f6 + "', '" + f7 + "', '" + f8 + "', '" + f9 + "', '" + f10 + "', '" + f11 + "', '" + f12 + "', '" + f13 + "', '" + f14 + "', '" + f15 + "') ORDER BY Fecha";
-            //db.strSQL = "SELECT Fecha, Incidencia FROM T_Asistenciasb WHERE Num_empleado = '" + number + "' AND Fecha IN ('" + fecha + "', dateadd(day,-1, '" + fecha + "'), dateadd(day,-2,'" + fecha + "'), dateadd(day,-3,'" + fecha + "'), dateadd(day,-4,'" + fecha + "'), dateadd(day,-5,'" + fecha + "'), dateadd(day,-6,'" + fecha + "') , dateadd(day,-7,'" + fecha + "'), dateadd(day,-8, '" + fecha + "'), dateadd(day,-9, '" + fecha + "'), dateadd(day,-10, '" + fecha + "'), dateadd(day,-11,'12-06-2023'), dateadd(day,-12, '" + fecha + "'), dateadd(day,-13,'12-06-2023'), dateadd(day,-14, '" + fecha + "') ) order by Fecha";
-
             if (db.bol_Consulta())
             {
                 foreach (DataRow row in db.ds.Tables[0].Rows)
@@ -40,6 +36,30 @@ namespace AWAppMovil.Class.Element.Incident
 
                 return incidents;
             }
+        }
+    
+        public static List<IncidenciaModel> GetCatalogoIncidencias()
+        {
+            ClassBD db = new ClassBD();
+            List<IncidenciaModel> incidencias = new List<IncidenciaModel>();
+            db.strSQL = "SELECT * FROM C_Inciden;";
+
+            if (db.bol_Consulta())
+            {
+                foreach (DataRow row in db.ds.Tables[0].Rows)
+                {
+                    IncidenciaModel inci = new IncidenciaModel
+                    {
+                        Inci = row["Inci"].ToString(),
+                        Titulo = row["Titulo"].ToString(),
+                        Descripcion = row["Descripcion"].ToString(),
+                        Tipo = int.Parse(row["Tipo"].ToString())
+                    };
+
+                    incidencias.Add(inci);
+                }
+            }
+            return incidencias;
         }
     }
 }

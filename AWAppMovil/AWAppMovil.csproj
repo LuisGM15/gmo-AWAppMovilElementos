@@ -103,6 +103,7 @@
     <Compile Include="Class\Element\Registry\ElementRegistryClass.cs" />
     <Compile Include="Class\Support\Auth\SupportAuthClass.cs" />
     <Compile Include="Class\Support\Messages\SupportMessagesClass.cs" />
+    <Compile Include="Class\Version\VersionClass.cs" />
     <Compile Include="Controllers\Element\Auth\ElementAuthController.cs" />
     <Compile Include="Controllers\Element\Encuesta\EncuestaController.cs" />
     <Compile Include="Controllers\Element\Expedient\ElementExpedientController.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Controllers\Element\Registry\ElementRegistryController.cs" />
     <Compile Include="Controllers\Support\Auth\SupportAuthController.cs" />
     <Compile Include="Controllers\Support\Messages\SupportMessagesController.cs" />
+    <Compile Include="Controllers\Version\VersionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -123,6 +125,7 @@
     <Compile Include="Models\Element\Encuesta\RespuestaModel.cs" />
     <Compile Include="Models\Element\Expedient\ElementExpedientModel.cs" />
     <Compile Include="Models\Element\Incident\ElementIncidentModel.cs" />
+    <Compile Include="Models\Element\Incident\IncidenciaModel.cs" />
     <Compile Include="Models\Element\Messages\ElementMensajeModel.cs" />
     <Compile Include="Models\Element\Messages\ElementSalaModel.cs" />
     <Compile Include="Models\Element\Messages\ElementTemaModel.cs" />
@@ -133,6 +136,7 @@
     <Compile Include="Models\Support\Auth\SupportAuthModel.cs" />
     <Compile Include="Models\Support\Messages\SupportMensajeModel.cs" />
     <Compile Include="Models\Support\Messages\SupportSalaModel.cs" />
+    <Compile Include="Models\Version\VersionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

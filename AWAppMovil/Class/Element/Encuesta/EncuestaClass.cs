@@ -14,8 +14,9 @@ namespace AWAppMovil.Class.Element.Encuesta
         public static List<EncuestaModel> GetEncuestasVigentes(string numElemento)
         {
             ClassBD db = new ClassBD();
+            string cd = DatetimeClass.GetDateFormatYYYYMMDD();
             List<EncuestaModel> encuestas = new List<EncuestaModel>();
-            db.strSQL = "SELECT T1.Id, T1.Titulo, T1.Descripcion, T1.Vigente, T1.Vigencia, T1.Created_at, CASE WHEN R1.Id IS NULL THEN 0 ELSE R1.Id END AS Relacion_id FROM APP_T_Encuesta T1 LEFT JOIN APP_R_Elemento_Encuesta R1 ON (R1.Encuesta_id = T1.Id AND R1.Num_elemento = '" + numElemento+"') WHERE T1.Vigente = 1";
+            db.strSQL = "SELECT T1.Id, T1.Titulo, T1.Descripcion, T1.Vigente, T1.Vigencia, T1.Created_at, CASE WHEN R1.Id IS NULL THEN 0 ELSE R1.Id END AS Relacion_id FROM APP_T_Encuesta T1 LEFT JOIN APP_R_Elemento_Encuesta R1 ON (R1.Encuesta_id = T1.Id AND R1.Num_elemento = '"+numElemento+"') WHERE T1.Vigente = 1 AND (CAST(Vigencia As Date) >= CAST('"+cd+"' AS Date))";
 
             if (db.bol_Consulta())
             {

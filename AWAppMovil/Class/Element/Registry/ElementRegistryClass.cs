@@ -36,7 +36,7 @@ namespace AWAppMovil.Class.Element.Registry
         {
             ClassBD db = new ClassBD();
             ElementRegistryModel element = new ElementRegistryModel();
-            db.strSQL = "SELECT DISTINCT t1.Id, t1.Num_Empleado, ltrim(rtrim(t1.Nombres)) + ' ' + ltrim(rtrim(t1.APaterno)) + ' ' + ltrim(rtrim(t1.AMaterno)) Nombre, c4.Puesto, t3.CURP FROM T_Empleado t1 LEFT JOIN T_m_Estatus t2 ON t1.Num_empleado = t2.Num_Empleado LEFT JOIN C_Puesto c4 ON c4.Id = t1.Puesto LEFT JOIN C_Estatus c5 ON c5.Id = t2.Estatus LEFT JOIN T_Curp t3 ON t1.Num_Empleado = t3.Num_Empleado WHERE t1.Num_Empleado = '"+num+"' AND t2.Estatus = 1 AND c4.Id IN (7, 8, 1, 17, 9, 3, 29, 30)";
+            db.strSQL = "SELECT DISTINCT t1.Id, t1.Num_Empleado, ltrim(rtrim(t1.Nombres)) + ' ' + ltrim(rtrim(t1.APaterno)) + ' ' + ltrim(rtrim(t1.AMaterno)) Nombre, c4.Puesto, t3.CURP FROM T_Empleado t1 LEFT JOIN T_m_Estatus t2 ON t1.Num_empleado = t2.Num_Empleado LEFT JOIN C_Puesto c4 ON c4.Id = t1.Puesto LEFT JOIN C_Estatus c5 ON c5.Id = t2.Estatus LEFT JOIN T_Curp t3 ON t1.Num_Empleado = t3.Num_Empleado WHERE t1.Num_Empleado = '"+num+"' AND t2.Estatus = 1";
 
             if (db.bol_Consulta())
             {
@@ -62,7 +62,7 @@ namespace AWAppMovil.Class.Element.Registry
         {
             ClassBD db = new ClassBD();
             List<ElementRegistryModel> elements = new List<ElementRegistryModel>();
-            db.strSQL = "SELECT DISTINCT t1.Id, t1.Num_Empleado, ltrim(rtrim(t1.Nombres)) + ' ' + ltrim(rtrim(t1.APaterno)) + ' ' + ltrim(rtrim(t1.AMaterno)) Nombre, c4.Puesto, t3.CURP FROM T_Empleado t1 LEFT JOIN T_m_Estatus t2 ON t1.Num_empleado = t2.Num_Empleado LEFT JOIN C_Puesto c4 ON c4.Id = t1.Puesto LEFT JOIN C_Estatus c5 ON c5.Id = t2.Estatus LEFT JOIN T_Curp t3 ON t1.Num_Empleado = t3.Num_Empleado WHERE REPLACE(t1.Nombres+t1.APaterno+t1.AMaterno, ' ', '') LIKE '%"+name+"%' AND t2.Estatus = 1 AND c4.Id IN (7, 8, 1, 17, 9, 3, 29, 30) AND t3.CURP = '"+curp+"'";
+            db.strSQL = "SELECT DISTINCT t1.Id, t1.Num_Empleado, ltrim(rtrim(t1.Nombres)) + ' ' + ltrim(rtrim(t1.APaterno)) + ' ' + ltrim(rtrim(t1.AMaterno)) Nombre, c4.Puesto, t3.CURP FROM T_Empleado t1 LEFT JOIN T_m_Estatus t2 ON t1.Num_empleado = t2.Num_Empleado LEFT JOIN C_Puesto c4 ON c4.Id = t1.Puesto LEFT JOIN C_Estatus c5 ON c5.Id = t2.Estatus LEFT JOIN T_Curp t3 ON t1.Num_Empleado = t3.Num_Empleado WHERE REPLACE(t1.Nombres+t1.APaterno+t1.AMaterno, ' ', '') LIKE '%"+name+"%' AND t2.Estatus = 1 AND t3.CURP = '"+curp+"'";
             //db.strSQL = "SELECT DISTINCT t1.Id, t1.Num_Empleado, ltrim(rtrim(t1.Nombres)) + ' ' + ltrim(rtrim(t1.APaterno)) + ' ' + ltrim(rtrim(t1.AMaterno)) Nombre, c4.Puesto FROM T_Empleado t1 LEFT JOIN T_m_Estatus t2 ON t1.Num_empleado = t2.Num_Empleado LEFT JOIN C_Puesto c4 ON c4.Id = t1.Puesto LEFT JOIN C_Estatus c5 ON c5.Id = t2.Estatus WHERE REPLACE(t1.Nombres+t1.APaterno+t1.AMaterno, ' ', '') LIKE '%" +name+"%' AND t2.Estatus = 1 AND c4.Id IN (7, 8, 1, 17, 9, 3, 29, 30)";
 
             if (db.bol_Consulta())
@@ -144,7 +144,6 @@ namespace AWAppMovil.Class.Element.Registry
             }
 
         }
-
 
     }
 }

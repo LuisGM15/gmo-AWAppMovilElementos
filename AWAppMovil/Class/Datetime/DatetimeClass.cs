@@ -33,7 +33,7 @@ namespace AWAppMovil.Class.Datetime
         public static string GetHourFormatHHMMSS()
         {
             DateTime currentdate = DateTime.Now;
-            string hora = currentdate.Hour.ToString() +":"+currentdate.Minute.ToString();
+            string hora = addCero(currentdate.Hour.ToString()) +":"+ addCero(currentdate.Minute.ToString());
             return hora;
         }
     }

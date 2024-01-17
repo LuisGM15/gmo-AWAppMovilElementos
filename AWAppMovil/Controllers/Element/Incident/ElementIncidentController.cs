@@ -4,9 +4,7 @@ using AWAppMovil.Models;
 using AWAppMovil.Models.Element.Incident;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+
 using System.Web.Http;
 
 namespace AWAppMovil.Controllers.Element.Incident
@@ -38,6 +36,13 @@ namespace AWAppMovil.Controllers.Element.Incident
                 inc.F14,
                 inc.F15
              );
-        }        
+        }
+
+        [HttpGet]
+        [Route("element/get-catalogo-incidencias")]
+        public List<IncidenciaModel> GetCatalogoIncidencias()
+        {
+            return ElementIncidentClass.GetCatalogoIncidencias();
+        }
     }
 }
