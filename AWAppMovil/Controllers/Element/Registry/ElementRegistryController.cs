@@ -44,7 +44,7 @@ namespace AWAppMovil.Controllers.Element.Registry
         //CONSULTA LOS DATOS DEL ELEMENTO MEDIANTE EL NOMBRE QUE SE MUESTRAN PREVIO AL REGISTRO
         [HttpPost]
         [Route("element/registry/get-element-to-registry-by-name")]
-        public List<ElementRegistryModel> GetElementToRegistryByName([FromBody] ElementRegistryModel element)
+        public ElementRegistryModel GetElementToRegistryByName([FromBody] ElementRegistryModel element)
         {
             return ElementRegistryClass.GetElementToRegistryByName(element.Nombre, element.Curp);
         }
@@ -55,6 +55,13 @@ namespace AWAppMovil.Controllers.Element.Registry
         public ElementRegistryModel NewAccount([FromBody] ElementRegistryModel element)
         {
             return ElementRegistryClass.CreateAccount(element.Num_empleado, element.Password, element.Status, element.Created_at);
+        }
+
+        [HttpGet]
+        [Route("element/buscar-elemento-nombre-curp")]
+        public ElementRegistryModel BuscarElementoNombreCurp()
+        {
+            return ElementRegistryClass.BuscarElementoPorNombreCurp();
         }
     }
 }

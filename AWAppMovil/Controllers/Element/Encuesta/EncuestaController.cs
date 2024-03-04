@@ -19,6 +19,14 @@ namespace AWAppMovil.Controllers.Element.Encuesta
         }
 
         [HttpPost]
+        [Route("encuesta/get-by-id")]
+        public EncuestaModel GetEncuestaById([FromBody] EncuestaModel e)
+        {
+            return EncuestaClass.GetEncuestaById(e.Id);
+        }
+
+
+        [HttpPost]
         [Route("encuesta/get-preguntas-by-encuesta")]
         public List<PreguntaModel> GetPreguntasByEncuesta([FromBody] PreguntaModel p)
         {

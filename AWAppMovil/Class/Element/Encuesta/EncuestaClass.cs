@@ -38,6 +38,30 @@ namespace AWAppMovil.Class.Element.Encuesta
             return encuestas;
         }
 
+        public static EncuestaModel GetEncuestaById(int id)
+        {
+            ClassBD db = new ClassBD();
+            EncuestaModel encuesta = new EncuestaModel();
+            db.strSQL = "SELECT * FROM APP_T_Encuesta WHERE Id = "+id+" AND Vigente = 1";
+
+            if (db.bol_Consulta())
+            {
+                foreach (DataRow row in db.ds.Tables[0].Rows)
+                {
+                    encuesta.Id = int.Parse(row["Id"].ToString());
+                    encuesta.Titulo = row["Titulo"].ToString();
+                    encuesta.Descripcion = row["Descripcion"].ToString();
+                    encuesta.Vigente = int.Parse(row["Vigente"].ToString());
+                    encuesta.Vigencia = row["Vigencia"].ToString();
+                }
+            }
+            else
+            {
+                encuesta.Id = 0;
+            }
+            return encuesta;
+        }
+
         public static List<PreguntaModel> GetPreguntasByEncuesta(int encuestaId)
         {
             ClassBD db = new ClassBD();

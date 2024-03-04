@@ -94,6 +94,7 @@
     <Compile Include="Class\ClassBD.cs" />
     <Compile Include="Class\Datetime\DatetimeClass.cs" />
     <Compile Include="Class\Element\Auth\ElementAuthClass.cs" />
+    <Compile Include="Class\Element\Capacitacion\CapacitacionClass.cs" />
     <Compile Include="Class\Element\Encuesta\EncuestaClass.cs" />
     <Compile Include="Class\Element\Expedient\ElementExpedientClass.cs" />
     <Compile Include="Class\Element\Incident\ElementIncidentClass.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Class\Support\Messages\SupportMessagesClass.cs" />
     <Compile Include="Class\Version\VersionClass.cs" />
     <Compile Include="Controllers\Element\Auth\ElementAuthController.cs" />
+    <Compile Include="Controllers\Element\Capacitacion\CapacitacionController.cs" />
     <Compile Include="Controllers\Element\Encuesta\EncuestaController.cs" />
     <Compile Include="Controllers\Element\Expedient\ElementExpedientController.cs" />
     <Compile Include="Controllers\Element\Incident\ElementIncidentController.cs" />
@@ -119,13 +121,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Element\Auth\ElementAuthModel.cs" />
+    <Compile Include="Models\Element\Capacitacion\MaterialModel.cs" />
+    <Compile Include="Models\Element\Capacitacion\ModuloModel.cs" />
     <Compile Include="Models\Element\Encuesta\EncuestaModel.cs" />
     <Compile Include="Models\Element\Encuesta\PreguntaModel.cs" />
     <Compile Include="Models\Element\Encuesta\RElementoEncuestaModel.cs" />
     <Compile Include="Models\Element\Encuesta\RespuestaModel.cs" />
     <Compile Include="Models\Element\Expedient\ElementExpedientModel.cs" />
     <Compile Include="Models\Element\Incident\ElementIncidentModel.cs" />
+    <Compile Include="Models\Element\Incident\IncidenciaElementoModel.cs" />
     <Compile Include="Models\Element\Incident\IncidenciaModel.cs" />
+    <Compile Include="Models\Element\Incident\ProyectoIncidenciaModel.cs" />
     <Compile Include="Models\Element\Messages\ElementMensajeModel.cs" />
     <Compile Include="Models\Element\Messages\ElementSalaModel.cs" />
     <Compile Include="Models\Element\Messages\ElementTemaModel.cs" />

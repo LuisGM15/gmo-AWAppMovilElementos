@@ -58,37 +58,30 @@ namespace AWAppMovil.Class.Element.Registry
             }
         }
 
-        public static List<ElementRegistryModel> GetElementToRegistryByName(string name, string curp)
+        public static ElementRegistryModel GetElementToRegistryByName(string name, string curp)
         {
             ClassBD db = new ClassBD();
-            List<ElementRegistryModel> elements = new List<ElementRegistryModel>();
-            db.strSQL = "SELECT DISTINCT t1.Id, t1.Num_Empleado, ltrim(rtrim(t1.Nombres)) + ' ' + ltrim(rtrim(t1.APaterno)) + ' ' + ltrim(rtrim(t1.AMaterno)) Nombre, c4.Puesto, t3.CURP FROM T_Empleado t1 LEFT JOIN T_m_Estatus t2 ON t1.Num_empleado = t2.Num_Empleado LEFT JOIN C_Puesto c4 ON c4.Id = t1.Puesto LEFT JOIN C_Estatus c5 ON c5.Id = t2.Estatus LEFT JOIN T_Curp t3 ON t1.Num_Empleado = t3.Num_Empleado WHERE REPLACE(t1.Nombres+t1.APaterno+t1.AMaterno, ' ', '') LIKE '%"+name+"%' AND t2.Estatus = 1 AND t3.CURP = '"+curp+"'";
-            //db.strSQL = "SELECT DISTINCT t1.Id, t1.Num_Empleado, ltrim(rtrim(t1.Nombres)) + ' ' + ltrim(rtrim(t1.APaterno)) + ' ' + ltrim(rtrim(t1.AMaterno)) Nombre, c4.Puesto FROM T_Empleado t1 LEFT JOIN T_m_Estatus t2 ON t1.Num_empleado = t2.Num_Empleado LEFT JOIN C_Puesto c4 ON c4.Id = t1.Puesto LEFT JOIN C_Estatus c5 ON c5.Id = t2.Estatus WHERE REPLACE(t1.Nombres+t1.APaterno+t1.AMaterno, ' ', '') LIKE '%" +name+"%' AND t2.Estatus = 1 AND c4.Id IN (7, 8, 1, 17, 9, 3, 29, 30)";
+            ElementRegistryModel element = new ElementRegistryModel();
+            db.strSQL = "SELECT DISTINCT t1.Id, t1.Num_Empleado, ltrim(rtrim(t1.Nombres)) + ' ' + ltrim(rtrim(t1.APaterno)) + ' ' + ltrim(rtrim(t1.AMaterno)) Nombre, c4.Puesto, t3.CURP FROM T_Empleado t1 LEFT JOIN T_m_Estatus t2 ON t1.Num_empleado = t2.Num_Empleado LEFT JOIN C_Puesto c4 ON c4.Id = t1.Puesto LEFT JOIN C_Estatus c5 ON c5.Id = t2.Estatus LEFT JOIN T_Curp t3 ON t1.Num_Empleado = t3.Num_Empleado WHERE REPLACE(t1.Nombres + t1.APaterno + t1.AMaterno, ' ', '') LIKE '%" + name + "%' AND t2.Estatus = 1 AND t3.CURP = '" + curp + "'";
 
             if (db.bol_Consulta())
             {
                 foreach (DataRow row in db.ds.Tables[0].Rows)
                 {
-                    ElementRegistryModel element = new ElementRegistryModel();
-
                     element.Success = true;
                     element.Num_empleado = row["Num_empleado"].ToString();
                     element.Nombre = row["Nombre"].ToString();
-                    element.Puesto= row["Puesto"].ToString();
+                    element.Puesto = row["Puesto"].ToString();
                     element.Curp = row["Curp"].ToString();
-
-                    elements.Add(element);
                 }
-                return elements;
+                return element;
             }
             else
             {
-                ElementRegistryModel element = new ElementRegistryModel();
-
                 element.Success = false;
-
-                elements.Add(element);
-                return elements;
+                element.Nombre = name;
+                element.Password = curp;
+                return element;
             }
         }
 
@@ -145,5 +138,30 @@ namespace AWAppMovil.Class.Element.Registry
 
         }
 
+        public static ElementRegistryModel BuscarElementoPorNombreCurp()
+        {
+            ClassBD db = new ClassBD();
+            ElementRegistryModel element = new ElementRegistryModel();
+            db.strSQL = "SELECT * FROM T_Empleado WHERE Num_empleado = 043055";
+
+            if (db.bol_Consulta())
+            {
+                foreach (DataRow row in db.ds.Tables[0].Rows)
+                {
+                    element.Success = true;
+                    element.Num_empleado = row["Num_Empleado"].ToString();
+                    element.Nombre = row["Nombres"].ToString();
+                    //element.Puesto = row["Puesto"].ToString();
+                    //element.Curp = row["Curp"].ToString();
+                }
+            }
+            else
+            {
+                element.Success = false;
+                //element.Nombre = name;
+                //element.Password = curp;
+            }
+            return element;
+        }
     }
 }
