@@ -98,6 +98,7 @@
     <Compile Include="Class\Element\Encuesta\EncuestaClass.cs" />
     <Compile Include="Class\Element\Expedient\ElementExpedientClass.cs" />
     <Compile Include="Class\Element\Incident\ElementIncidentClass.cs" />
+    <Compile Include="Class\Element\Manual\ManualClass.cs" />
     <Compile Include="Class\Element\Messages\ElementMessagesClass.cs" />
     <Compile Include="Class\Element\Notices\ElementNoticesClass.cs" />
     <Compile Include="Class\Element\Profile\ElementProfileClass.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Controllers\Element\Encuesta\EncuestaController.cs" />
     <Compile Include="Controllers\Element\Expedient\ElementExpedientController.cs" />
     <Compile Include="Controllers\Element\Incident\ElementIncidentController.cs" />
+    <Compile Include="Controllers\Element\Manual\ManualController.cs" />
     <Compile Include="Controllers\Element\Messages\ElementMessagesController.cs" />
     <Compile Include="Controllers\Element\Notices\ElementNoticesController.cs" />
     <Compile Include="Controllers\Element\Profile\ElementProfileController.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="Models\Element\Incident\IncidenciaElementoModel.cs" />
     <Compile Include="Models\Element\Incident\IncidenciaModel.cs" />
     <Compile Include="Models\Element\Incident\ProyectoIncidenciaModel.cs" />
+    <Compile Include="Models\Element\Manual\ManualModel.cs" />
     <Compile Include="Models\Element\Messages\ElementMensajeModel.cs" />
     <Compile Include="Models\Element\Messages\ElementSalaModel.cs" />
     <Compile Include="Models\Element\Messages\ElementTemaModel.cs" />
